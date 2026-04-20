@@ -31,4 +31,8 @@ terraform/terraform.tfvars
 Thumbs.db
 
 # Logs
-*.log
+*.log# SSH Keys
+ansible/ssh_key.pem
+
+# Terraform
+terraform/.terraform.lock.hcl
