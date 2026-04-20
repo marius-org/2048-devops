@@ -27,3 +27,9 @@ output "db_name" {
   description = "Database name"
   value       = module.rds.db_name
 }
+
+output "ssh_private_key" {
+  description = "Private SSH key for Ansible"
+  value       = module.app_vm.private_key
+  sensitive   = true
+}

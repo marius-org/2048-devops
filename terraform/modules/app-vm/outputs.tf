@@ -17,3 +17,9 @@ output "security_group_id" {
   description = "Security group ID of the EC2 instance"
   value       = aws_security_group.app.id
 }
+
+output "private_key" {
+  description = "Private SSH key"
+  value       = tls_private_key.app.private_key_openssh
+  sensitive   = true
+}
