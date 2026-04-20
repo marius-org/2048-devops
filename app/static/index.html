@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2048 Game</title>
+    <title>2048 — Join the Numbers</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>2048</h1>
-    <p class="subtitle">Join the numbers and get to 2048</p>
 
-    <div class="scoreboard">
-        <div class="score-box">
-            <div class="label">Score</div>
-            <div class="value" id="score">0</div>
+    <div class="header">
+        <div class="title-block">
+            <h1>2048</h1>
+            <p>Join the numbers</p>
         </div>
-        <div class="score-box">
-            <div class="label">Best</div>
-            <div class="value" id="best">0</div>
+        <div class="scores">
+            <div class="score-box">
+                <div class="label">Score</div>
+                <div class="value" id="score">0</div>
+            </div>
+            <div class="score-box">
+                <div class="label">Best</div>
+                <div class="value" id="best">0</div>
+            </div>
         </div>
     </div>
 
     <div class="controls">
-        <button onclick="initBoard()">New Game</button>
-        <button onclick="loadLeaderboard()">Refresh Scores</button>
+        <button class="btn-primary" onclick="initBoard()">New Game</button>
+        <button class="btn-secondary" onclick="loadLeaderboard()">Refresh Scores</button>
     </div>
 
     <div class="game-container">
@@ -31,22 +35,25 @@
 
         <div class="game-over" id="game-over">
             <h2>Game Over!</h2>
-            <p>Enter your name to save your score</p>
-            <input 
-                type="text" 
-                id="player-name" 
+            <p>Save your score</p>
+            <input
+                type="text"
+                id="player-name"
                 placeholder="Your name"
                 maxlength="20"
             >
-            <button onclick="submitScore()">Save Score</button>
-            <button onclick="initBoard(); document.getElementById('game-over').style.display='none'">
+            <button class="btn-primary" onclick="submitScore()">Save Score</button>
+            <button class="btn-secondary" onclick="initBoard(); document.getElementById('game-over').style.display='none'">
                 Play Again
             </button>
         </div>
     </div>
 
     <div class="leaderboard">
-        <h2>🏆 Leaderboard</h2>
+        <div class="leaderboard-header">
+            <span class="trophy">🏆</span>
+            <h2>Leaderboard</h2>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -58,7 +65,7 @@
             </thead>
             <tbody id="leaderboard-body">
                 <tr>
-                    <td colspan="4" style="text-align:center; color:#444;">
+                    <td colspan="4" style="text-align:center; color:#aaa; border-radius:12px;">
                         No scores yet. Be the first!
                     </td>
                 </tr>
@@ -66,7 +73,7 @@
         </table>
     </div>
 
-    <p class="hint">Use arrow keys or swipe to play</p>
+    <p class="hint">↑ ↓ ← → arrow keys or swipe to play</p>
 
     <script src="/static/game.js"></script>
 </body>
