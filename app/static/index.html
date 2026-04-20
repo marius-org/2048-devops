@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>2048</h1>
+    <p class="subtitle">Join the numbers and get to 2048</p>
+
+    <div class="scoreboard">
+        <div class="score-box">
+            <div class="label">Score</div>
+            <div class="value" id="score">0</div>
+        </div>
+        <div class="score-box">
+            <div class="label">Best</div>
+            <div class="value" id="best">0</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="initBoard()">New Game</button>
+        <button onclick="loadLeaderboard()">Refresh Scores</button>
+    </div>
+
+    <div class="game-container">
+        <div id="grid"></div>
+
+        <div class="game-over" id="game-over">
+            <h2>Game Over!</h2>
+            <p>Enter your name to save your score</p>
+            <input 
+                type="text" 
+                id="player-name" 
+                placeholder="Your name"
+                maxlength="20"
+            >
+            <button onclick="submitScore()">Save Score</button>
+            <button onclick="initBoard(); document.getElementById('game-over').style.display='none'">
+                Play Again
+            </button>
+        </div>
+    </div>
+
+    <div class="leaderboard">
+        <h2>🏆 Leaderboard</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Player</th>
+                    <th>Score</th>
+                    <th>Best Tile</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+                <tr>
+                    <td colspan="4" style="text-align:center; color:#444;">
+                        No scores yet. Be the first!
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="hint">Use arrow keys or swipe to play</p>
+
+    <script src="/static/game.js"></script>
+</body>
+</html>
